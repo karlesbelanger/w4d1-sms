@@ -18,32 +18,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Uri sms_uri = Uri.parse("smsto:+6789084843");
-//        Intent sms_intent = new Intent(Intent.ACTION_SENDTO, sms_uri);
-//        sms_intent.putExtra("sms_body", "Good Morning ! how r U ?");
-//        startActivity(sms_intent);
-
-        try {
-            Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-            smsIntent.setData(Uri.parse("smsto:" + Uri.encode(number)));
-            smsIntent.putExtra("address", number);
-            smsIntent.putExtra("sms_body", message);
-
-            PackageManager pm = getPackageManager();
-            List<ResolveInfo> resInfo = pm.queryIntentActivities(smsIntent, 0);
-
-            for (int i = 0; i < resInfo.size(); i++) {
-                ResolveInfo ri = resInfo.get(i);
-                String packageName = ri.activityInfo.packageName;
-
-                if (packageName.contains("sms")) {
-                    //Log.d("TAG", packageName + " : " + ri.activityInfo.name);
-                    smsIntent.setComponent(new ComponentName(packageName, ri.activityInfo.name));
-                }
-            }
-            startActivity(smsIntent);
-        } catch (Exception e) {
-            // Handle Error
-        }
+        Uri sms_uri = Uri.parse("smsto:6789084843");
+        Intent sms_intent = new Intent(Intent.ACTION_SENDTO, sms_uri);
+        sms_intent.putExtra("sms_body", "Good work bro, you have completed the entire homework list :)");
+        startActivity(sms_intent);
     }
 }
