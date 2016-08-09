@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Uri sms_uri = Uri.parse("smsto:6789084843");
         Intent sms_intent = new Intent(Intent.ACTION_SENDTO, sms_uri);
-        sms_intent.putExtra("sms_body", "Good work bro, you have completed the entire homework list :)");
+        sms_intent.putExtra("sms_body", "Good work bro, you have completed all the homewor :)");
         startActivity(sms_intent);
     }
 }
